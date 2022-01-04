@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const Toolbar = () => {
     return (
-        <div className={'toolBar d-flex'}>
+        <div className={'toolBar d-flex space-btw'}>
             <img src="" alt="logo"/>
             <nav className={'d-flex'}>
                 <Link to='/'>Home</Link>

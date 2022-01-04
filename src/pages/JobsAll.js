@@ -1,10 +1,13 @@
 import React from 'react';
+import FindJobForm from "../components/FindJobForm";
 
 const JobsAll = () => {
     return (
-        <div>
+        <main>
+            <iframe src="" frameborder="0"></iframe>
+            <FindJobForm />
             <h1>AllJobs</h1>
-        </div>
+        </main>
     );
 };
 

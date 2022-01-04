@@ -3,11 +3,11 @@
   width: 100%;
 }
 
-.toolBar{
-  height: 80px;
+.toolBar, footer{
+  height: 100px;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  background-color: lightskyblue;
 }
 
 .toolBar img{
@@ -20,6 +20,16 @@ nav{
   justify-content: space-evenly;
 }
 
+main{
+  width: 80%;
+}
+
+.socialLinks{
+  width: 100%;
+  justify-content: flex-end;
+}
+
+
 .d-flex{
   display: flex;
 }
@@ -28,4 +38,12 @@ nav{
 }
 .justify-center{
   justify-content: center;
+}
+
+.space-btw{
+  justify-content: space-between;
+}
+
+.m-5{
+  margin: 5px;
 }
