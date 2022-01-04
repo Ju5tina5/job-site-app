@@ -10,10 +10,7 @@ Multi-page website for posting/finding jobs.
 
 ### Dependencies
 
-HTML
-CSS
-JS
-React.js
+React.js (react-router-dom)
 
 ### Installing
 
