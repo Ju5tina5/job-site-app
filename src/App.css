@@ -1,6 +1,31 @@
 .mainWrapper{
-  display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.toolBar{
+  height: 80px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolBar img{
+  flex: 1;
+}
+
+nav{
+  flex: 2;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.d-flex{
+  display: flex;
+}
+.flex-column{
+  flex-direction: column;
+}
+.justify-center{
+  justify-content: center;
 }
