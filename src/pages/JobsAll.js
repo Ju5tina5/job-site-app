@@ -4,9 +4,12 @@ import FindJobForm from "../components/FindJobForm";
 const JobsAll = () => {
     return (
         <main>
-            <iframe src="" frameborder="0"></iframe>
-            <FindJobForm />
-            <h1>AllJobs</h1>
+            <div>MAP</div>
+            <section>
+                <FindJobForm />
+                <h1>AllJobs</h1>
+            </section>
+
         </main>
     );
 };
