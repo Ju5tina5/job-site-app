@@ -2,6 +2,7 @@
   align-items: center;
   width: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .toolBar{
@@ -34,8 +35,39 @@ main{
   align-items: center;
 }
 
+header{
+  width: 100%;
+  background: #fafafa;
+}
+
 section, form{
   width: 60%;
+}
+
+section > img {
+  height: 200px;
+}
+
+.bannerImg {
+  width: 100%;
+}
+
+.jobCardSmall{
+  cursor: pointer;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin: 5px;
+  border: solid 1px black;
+  transition: 0.2s;
+}
+
+.jobCardSmall:hover{
+  box-shadow: -4px 0 0 0 green;
+}
+
+.jobCardSmall img{
+  height: 100%;
 }
 
 form *{
@@ -86,4 +118,16 @@ form *{
 
 .m-5{
   margin: 5px;
+}
+
+@media (max-width: 768px) {
+
+  form{
+    width: 100%;
+    padding: 0 10px;
+  }
+  form input,select,textarea{
+    width: 90%;
+  }
+
 }

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FindJobForm from "../components/FindJobForm";
+import DisplayJobs from "../components/DisplayJobs";
 
-const Home = () => {
+const Home = ({getJobs, length, addLength}) => {
+
+
+
     return (
         <main>
             <section>
@@ -9,11 +13,14 @@ const Home = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Ad aliquid atque dolor earum exercitationem odit!
                     Ipsum nisi quibusdam tempora veniam.</p>
-                <FindJobForm />
+                <FindJobForm/>
             </section>
             <section>Companies</section>
             <section>INFO</section>
-            <section>JOBS</section>
+            <section>
+                <DisplayJobs jobs={getJobs}/>
+                {length !== getJobs.length && <button className={'btn'} onClick={() => addLength()}>Show more</button>}
+            </section>
             <section>INFO</section>
             <section>STATS</section>
         </main>

@@ -1,8 +1,10 @@
 import React from 'react';
 import {useRef, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
-const PostJob = () => {
+const PostJob = ({postJob}) => {
 
+    const navigation = useNavigate();
     const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('')
 
@@ -20,6 +22,7 @@ const PostJob = () => {
 
     const handleSubmitValues = (e) => {
         e.preventDefault();
+        // new job post data
         let newJob = {
             companyName: refs.companyName.current.value,
             jobTitle: refs.jobTitle.current.value,
@@ -38,13 +41,22 @@ const PostJob = () => {
             setErrorMsg('Text minimal length should at least 6 symbols long, but no longer than 50 ')
             return setError(true);
         }
+        if(newJob.description.length < 20 || newJob.description.length > 500){
+            setErrorMsg('Description minimal length should at least 20 symbols long, but no longer than 500 symbols')
+            return setError(true);
+        }
+        if(newJob.image.substring(0,4) !== 'http'){
+            setErrorMsg('Image link should be provided')
+            return setError(true);
+        }
 
-        console.log(newJob)
+        postJob(newJob)
         setError(false)
+        navigation('/allJobs')
     }
 
-    const handleTextChange = (e) => {
-        if(e.target.value.length < 6){
+    const handleTextChange = (e, num) => {
+        if(e.target.value.length < num){
             e.target.style = 'color: red';
         } else {
             e.target.style = 'color: black';
@@ -54,23 +66,22 @@ const PostJob = () => {
     return (
         <main>
             <h1>Post new job</h1>
-            {error && <h2>{errorMsg}</h2>}
             <form className={'d-flex flex-column'} onSubmit={handleSubmitValues}>
                 <label htmlFor={refs.companyName}>Company Name</label>
-                <input type="text" ref={refs.companyName} onChange={handleTextChange}/>
+                <input type="text" ref={refs.companyName} onChange={(e) => handleTextChange(e, 6)}/>
                 <label htmlFor={refs.jobTitle}>Job title</label>
-                <input type="text" ref={refs.jobTitle} onChange={handleTextChange}/>
+                <input type="text" ref={refs.jobTitle} onChange={(e) => handleTextChange(e, 6)}/>
                 <label htmlFor={refs.location}>Location</label>
-                <input type="text" ref={refs.location} onChange={handleTextChange}/>
+                <input type="text" ref={refs.location} onChange={(e) => handleTextChange(e, 6)}/>
                 <label htmlFor={refs.email}>Email</label>
                 <input type="email" ref={refs.email} required/>
                 <label htmlFor={refs.region}>Region</label>
                 <select ref={refs.region}>
-                    <option value="vilnius">Vilnius</option>
-                    <option value="kaunas">Kaunas</option>
-                    <option value="klaipeda">Klaipėda</option>
-                    <option value="siauliai">Šiauliai</option>
-                    <option value="panevezys">Panėvežys</option>
+                    <option value="Vilnius">Vilnius</option>
+                    <option value="Kaunas">Kaunas</option>
+                    <option value="Klaipėda">Klaipėda</option>
+                    <option value="Šiauliai">Šiauliai</option>
+                    <option value="Panevėžys">Panėvežys</option>
                 </select>
                 <label htmlFor={refs.jobType}>Job type</label>
                 <select ref={refs.jobType}>
@@ -88,11 +99,12 @@ const PostJob = () => {
                     <option value="sales">Sales</option>
                 </select>
                 <label htmlFor={refs.description}>Description</label>
-                <textarea ref={refs.description} onChange={handleTextChange}/>
+                <textarea ref={refs.description} onChange={(e) => handleTextChange(e, 20)}/>
                 <label htmlFor={refs.image}>Company Logo URL</label>
                 <input type="text" ref={refs.image}/>
                 <button className={'btn'} type={"submit"}>Post Job</button>
             </form>
+            {error && <h2 style={{color: 'red'}}>{errorMsg}</h2>}
         </main>
     );
 };
