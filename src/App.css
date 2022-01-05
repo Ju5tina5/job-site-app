@@ -7,6 +7,7 @@
 
 .toolBar{
   position: fixed;
+  z-index: 5;
 }
 
 .toolBar, footer{
@@ -33,6 +34,41 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.headerWrapper{
+  background-image: url("https://cdn.hswstatic.com/gif/photo-cellphone-laptop.jpg");
+  background-size: 100% 800px ;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 100px 0;
+  color: #efeded;
+  text-align: center;
+}
+
+.headerWrapper  form{
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.headerWrapper form > *{
+  padding: 0;
+  width: 22%;
+  height: 40px;
+  margin: 10px;
+  border: none;
+  box-shadow: 0 0 3px 0 black;
+  border-radius: 5px;
+}
+
+.imgWrapper div{
+  height: 150px;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  background-size: contain;
+  filter: grayscale(100%);
+  border-radius: 10px;
 }
 
 header{
@@ -108,8 +144,18 @@ form *{
 .flex-column{
   flex-direction: column;
 }
+
+.align-center{
+  align-items: center;
+}
+
 .justify-center{
   justify-content: center;
+}
+
+
+.space-evenly{
+  justify-content: space-evenly;
 }
 
 .space-btw{
@@ -118,6 +164,10 @@ form *{
 
 .m-5{
   margin: 5px;
+}
+
+.p-5{
+  padding: 5px;
 }
 
 @media (max-width: 768px) {

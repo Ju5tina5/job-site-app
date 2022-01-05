@@ -206,7 +206,7 @@ function App() {
 
   return (
     <div className="mainWrapper d-flex flex-column">
-      <DataContext.Provider value={{onArrayFilter, length, setLength}}>
+      <DataContext.Provider value={{onArrayFilter, length, setLength, getJobPosts}}>
         <Toolbar setLength={setLength}/>
         <Routes>
           <Route path='/' element={<Home getJobs={getJobPosts} length={length} addLength={addLength}/>} />
