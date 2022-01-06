@@ -2,10 +2,12 @@ import React from 'react';
 import FindJobForm from "../components/FindJobForm";
 import DisplayJobs from "../components/DisplayJobs";
 import Clients from '../components/Clients'
-import {DataContext} from "../contexts/DataContext";
+import Info from "../components/Info";
+import Stats from "../components/Stats";
+import Articles from "../components/Articles";
+import Reviews from "../components/Reviews";
 
-const Home = ({getJobs, length, addLength}) => {
-
+const Home = ({getJobs, length, addLength, removeLength, information}) => {
 
 
     return (
@@ -19,15 +21,34 @@ const Home = ({getJobs, length, addLength}) => {
                     <FindJobForm/>
                 </section>
             </div>
-            <Clients />
-            <section>INFO</section>
-            <section>
-                <h2>Hundreds of Jobs From All Over the Globe</h2>
-                <DisplayJobs jobs={getJobs}/>
-                {length !== getJobs.length && <button className={'btn'} onClick={() => addLength()}>Show more</button>}
+            <article>
+                <Clients />
+            </article>
+            <section className={'d-flex flex-end'}>
+                <Info info={information[0]} />
             </section>
-            <section>INFO</section>
-            <section>STATS</section>
+            <article>
+                <section>
+                    <h2>Hundreds of Jobs From All Over the Globe</h2>
+                    <DisplayJobs jobs={getJobs}/>
+                    <div className={'d-flex space-btw'}>
+                        {length !== getJobs.length && <button className={'btn'} onClick={() => addLength()}>Show more</button>}
+                        {length > 4 && <button className={'btn'} onClick={() => removeLength()}>Show Less</button>}
+                    </div>
+                </section>
+            </article>
+            <section>
+                <Info info={information[1]}/>
+            </section>
+            <article>
+                <Stats jobs={getJobs}/>
+            </article>
+            <article>
+                <Reviews />
+            </article>
+            <article>
+                <Articles />
+            </article>
         </main>
     );
 };

@@ -28,7 +28,7 @@ const FindJobForm = () => {
 
 
     return (
-        <form onSubmit={handleFormSubmit} className={'d-flex'}>
+        <form onSubmit={handleFormSubmit} className={'d-flex findFrom'}>
             <input type="text" placeholder={'Keywords'} ref={refs.keyWord}/>
             <select ref={refs.region} defaultValue={"all-regions"}>
                 <option value="all-regions">All Regions</option>

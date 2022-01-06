@@ -9,9 +9,22 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import SingleJobPost from "./pages/SingleJobPost";
 import {DataContext} from "./contexts/DataContext";
+import Contacts from "./components/Contacts";
+
 
 
 function App() {
+
+  const infoArr = [
+      {
+        header: 'Make Recruiting Your Competitive Advantage',
+        text: 'Talent is a top priority for all startup founders and executives. Jobify offers a way to completely optimize your entire recruiting process. Find better candidates, conduct more focused interviews, and make data-driven hiring decisions.'
+      },
+    {
+      header: 'Join Thousands of Companies That Rely on Jobify',
+      text: 'Jobify offers a way to completely optimize your entire recruiting process. Find better candidates, conduct more focused interviews, and make data-driven hiring decisions.'
+    }
+  ]
 
   const [getJobPosts, setJobPosts] = useState([
         {
@@ -161,7 +174,31 @@ function App() {
           jobCategory: "design",
           description: "As Marketing Graphic Designer, your primary responsibility is to assist the Marketing and Social Media team with a variety of graphic design tasks ranging from email, ads, print, and website design. You will be responsible to take a set of instructions, or a stated problem, and produce clean, modern design assets that are within the brand requirements of our company and our products. As part of the process, this person will collaborate with members of the marketing, design and product teams to gain a clear understanding of the campaign expectations, target audience, and product positioning.",
           image: 'https://wordpressmu-470622-2067955.cloudwaysapps.com/classic/wp-content/uploads/sites/2/2013/03/company-logo-paypal.jpg'
-        }
+        },
+        {
+          id: 'e13',
+          companyName: 'Shopify',
+          jobTitle: 'Sales Rep',
+          location: 'Uzkampio g. 32',
+          email: "shopify@gamil.com",
+          region: "Vilnius",
+          jobType: "full-time",
+          jobCategory: "sales",
+          description: "As Marketing Graphic Designer, your primary responsibility is to assist the Marketing and Social Media team with a variety of graphic design tasks ranging from email, ads, print, and website design. You will be responsible to take a set of instructions, or a stated problem, and produce clean, modern design assets that are within the brand requirements of our company and our products. As part of the process, this person will collaborate with members of the marketing, design and product teams to gain a clear understanding of the campaign expectations, target audience, and product positioning.",
+          image: 'https://wordpressmu-470622-2067955.cloudwaysapps.com/classic/wp-content/uploads/sites/2/2014/03/company-logo-shopify.jpg'
+        },
+          {
+            id: 'e14',
+            companyName: 'Square',
+            jobTitle: 'Sales Rep',
+            location: 'Zabludiskiu g. 85',
+            email: "square@gamil.com",
+            region: "Klaipėda",
+            jobType: "part-time",
+            jobCategory: "sales",
+            description: "As Marketing Graphic Designer, your primary responsibility is to assist the Marketing and Social Media team with a variety of graphic design tasks ranging from email, ads, print, and website design. You will be responsible to take a set of instructions, or a stated problem, and produce clean, modern design assets that are within the brand requirements of our company and our products. As part of the process, this person will collaborate with members of the marketing, design and product teams to gain a clear understanding of the campaign expectations, target audience, and product positioning.",
+            image: 'https://wordpressmu-470622-2067955.cloudwaysapps.com/classic/wp-content/uploads/sites/2/2014/03/company-logo-sspace.jpg'
+          }
       ]);
   const [length, setLength] = useState(4);
   const [getFiltered, setFiltered] = useState(getJobPosts)
@@ -181,12 +218,18 @@ function App() {
     })
     setFiltered(getJobPosts);
   }
-
   const addLength = () => {
     if((length + 4) > getFiltered.length){
       setLength(getFiltered.length)
     } else {
       setLength(length + 4)
+    }
+  }
+  const removeLength = () => {
+    if((length - 4) === getFiltered.length){
+      setLength(getFiltered.length)
+    } else {
+      setLength(length - 4)
     }
   }
 
@@ -209,12 +252,13 @@ function App() {
       <DataContext.Provider value={{onArrayFilter, length, setLength, getJobPosts}}>
         <Toolbar setLength={setLength}/>
         <Routes>
-          <Route path='/' element={<Home getJobs={getJobPosts} length={length} addLength={addLength}/>} />
-          <Route path={'/allJobs'} element={<JobsAll getJobs={getFiltered} length={length} addLength={addLength}/>} />
+          <Route path='/' element={<Home getJobs={getJobPosts} length={length} addLength={addLength} removeLength={removeLength} information={infoArr}/>} />
+          <Route path={'/allJobs'} element={<JobsAll getJobs={getFiltered} length={length} addLength={addLength} removeLength={removeLength}/>} />
           <Route path={'/postJob'} element={<PostJob postJob={addNewJobHandler}/>}/>
           <Route path={'/singleJob/:id'} element={<SingleJobPost jobs={getJobPosts}/>}/>
           <Route path={'*'} element={<Error />}/>
         </Routes>
+        <Contacts />
         <Footer />
       </DataContext.Provider>
     </div>

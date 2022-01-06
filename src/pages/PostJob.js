@@ -64,47 +64,47 @@ const PostJob = ({postJob}) => {
     }
 
     return (
-        <main>
+        <main style={{backgroundColor: '#f5f1f1'}}>
             <h1>Post new job</h1>
-            <form className={'d-flex flex-column'} onSubmit={handleSubmitValues}>
-                <label htmlFor={refs.companyName}>Company Name</label>
-                <input type="text" ref={refs.companyName} onChange={(e) => handleTextChange(e, 6)}/>
-                <label htmlFor={refs.jobTitle}>Job title</label>
-                <input type="text" ref={refs.jobTitle} onChange={(e) => handleTextChange(e, 6)}/>
-                <label htmlFor={refs.location}>Location</label>
-                <input type="text" ref={refs.location} onChange={(e) => handleTextChange(e, 6)}/>
-                <label htmlFor={refs.email}>Email</label>
-                <input type="email" ref={refs.email} required/>
-                <label htmlFor={refs.region}>Region</label>
-                <select ref={refs.region}>
-                    <option value="Vilnius">Vilnius</option>
-                    <option value="Kaunas">Kaunas</option>
-                    <option value="Klaipėda">Klaipėda</option>
-                    <option value="Šiauliai">Šiauliai</option>
-                    <option value="Panevėžys">Panėvežys</option>
-                </select>
-                <label htmlFor={refs.jobType}>Job type</label>
-                <select ref={refs.jobType}>
-                    <option value="freelance">Freelance</option>
-                    <option value="full-time">Full Time</option>
-                    <option value="internship">Internship</option>
-                    <option value="part-time">Part Time</option>
-                    <option value="temporary">Temporary</option>
-                </select>
-                <label htmlFor={refs.jobCategory}>Job Category</label>
-                <select ref={refs.jobCategory}>
-                    <option value="design">Design</option>
-                    <option value="development">Development</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="sales">Sales</option>
-                </select>
-                <label htmlFor={refs.description}>Description</label>
-                <textarea ref={refs.description} onChange={(e) => handleTextChange(e, 20)}/>
-                <label htmlFor={refs.image}>Company Logo URL</label>
-                <input type="text" ref={refs.image}/>
-                <button className={'btn'} type={"submit"}>Post Job</button>
-            </form>
-            {error && <h2 style={{color: 'red'}}>{errorMsg}</h2>}
+                <form className={'d-flex flex-column'} onSubmit={handleSubmitValues}>
+                    <label htmlFor={refs.companyName}>Company Name</label>
+                    <input type="text" ref={refs.companyName} onChange={(e) => handleTextChange(e, 6)}/>
+                    <label htmlFor={refs.jobTitle}>Job title</label>
+                    <input type="text" ref={refs.jobTitle} onChange={(e) => handleTextChange(e, 6)}/>
+                    <label htmlFor={refs.location}>Location</label>
+                    <input type="text" ref={refs.location} onChange={(e) => handleTextChange(e, 6)}/>
+                    <label htmlFor={refs.email}>Email</label>
+                    <input type="email" ref={refs.email} required/>
+                    <label htmlFor={refs.region}>Region</label>
+                    <select ref={refs.region}>
+                        <option value="Vilnius">Vilnius</option>
+                        <option value="Kaunas">Kaunas</option>
+                        <option value="Klaipėda">Klaipėda</option>
+                        <option value="Šiauliai">Šiauliai</option>
+                        <option value="Panevėžys">Panėvežys</option>
+                    </select>
+                    <label htmlFor={refs.jobType}>Job type</label>
+                    <select ref={refs.jobType}>
+                        <option value="freelance">Freelance</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="internship">Internship</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="temporary">Temporary</option>
+                    </select>
+                    <label htmlFor={refs.jobCategory}>Job Category</label>
+                    <select ref={refs.jobCategory}>
+                        <option value="design">Design</option>
+                        <option value="development">Development</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                    </select>
+                    <label htmlFor={refs.description}>Description</label>
+                    <textarea ref={refs.description} onChange={(e) => handleTextChange(e, 20)}/>
+                    <label htmlFor={refs.image}>Company Logo URL</label>
+                    <input type="text" ref={refs.image}/>
+                    <button className={'btn'} type={"submit"}>Post Job</button>
+                </form>
+                {error && <h2 style={{color: 'red'}}>{errorMsg}</h2>}
         </main>
     );
 };

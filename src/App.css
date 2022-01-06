@@ -3,11 +3,18 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  background-image: url("http://rsparch.com/wp-content/uploads/2016/05/Mobile-IT-Workplace.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  background-attachment: fixed;
 }
 
 .toolBar{
   position: fixed;
   z-index: 5;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .toolBar, footer{
@@ -17,14 +24,38 @@
   background-color: lightskyblue;
 }
 
-.toolBar img{
+.toolBar > .logoWrapper{
   flex: 1;
+}
+
+
+.logoWrapper img{
+  height: 100%;
+  width: 100px;
+}
+
+iframe{
+  padding: 0;
+  width: 100%;
+  border: 0;
+  box-shadow: 0 0 3px 0 black;
 }
 
 nav{
   flex: 2;
   align-items: stretch;
   justify-content: space-evenly;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  transition: 0.1s;
+}
+
+a:hover{
+  box-shadow: 0 1px 0 0 grey;
 }
 
 main{
@@ -36,6 +67,14 @@ main{
   align-items: center;
 }
 
+article{
+  display: flex;
+  justify-content: center;
+  background: white;
+  width: 100%;
+}
+
+
 .headerWrapper{
   background-image: url("https://cdn.hswstatic.com/gif/photo-cellphone-laptop.jpg");
   background-size: 100% 800px ;
@@ -46,12 +85,12 @@ main{
   text-align: center;
 }
 
-.headerWrapper  form{
+.findFrom {
   width: 100%;
   justify-content: space-evenly;
 }
 
-.headerWrapper form > *{
+.findFrom > *{
   padding: 0;
   width: 22%;
   height: 40px;
@@ -75,9 +114,14 @@ header{
   width: 100%;
   background: #fafafa;
 }
-
-section, form{
+form, section{
   width: 60%;
+}
+
+.infoWrapper{
+  width: 50%;
+  color: white;
+  padding: 50px 0;
 }
 
 section > img {
@@ -88,14 +132,21 @@ section > img {
   width: 100%;
 }
 
+.checkBoxes{
+  margin: 0;
+  padding: 10px;
+  background: lightskyblue;
+
+}
+
 .jobCardSmall{
   cursor: pointer;
-  width: 100%;
   height: 100px;
   padding: 10px;
   margin: 5px;
   border: solid 1px black;
   transition: 0.2s;
+  background: white;
 }
 
 .jobCardSmall:hover{
@@ -104,6 +155,16 @@ section > img {
 
 .jobCardSmall img{
   height: 100%;
+}
+
+
+.contactsWrapper > div{
+  width: 23%;
+  padding: 15px;
+}
+
+form{
+  width: 80%;
 }
 
 form *{
@@ -131,6 +192,16 @@ form *{
   border-radius: 5px;
 }
 
+.btn-white{
+  background: white;
+  color: black;
+}
+
+.btn-white:hover{
+  background: black;
+  color: white;
+}
+
 .btn:hover{
   color: black;
   border: solid 2px lightskyblue;
@@ -153,7 +224,6 @@ form *{
   justify-content: center;
 }
 
-
 .space-evenly{
   justify-content: space-evenly;
 }
@@ -162,20 +232,26 @@ form *{
   justify-content: space-between;
 }
 
+.flex-end{
+  justify-content: flex-end;
+}
+
 .m-5{
   margin: 5px;
 }
-
 .p-5{
   padding: 5px;
+}
+.p-10{
+  padding: 10px;
+}
+
+.gap-15{
+  gap: 30px;
 }
 
 @media (max-width: 768px) {
 
-  form{
-    width: 100%;
-    padding: 0 10px;
-  }
   form input,select,textarea{
     width: 90%;
   }

@@ -1,9 +1,9 @@
 import FindJobForm from "../components/FindJobForm";
 import DisplayJobs from "../components/DisplayJobs";
-import {useState} from "react";
+import React, {useState} from "react";
 
 
-const JobsAll = ({getJobs, length, addLength}) => {
+const JobsAll = ({getJobs, length, addLength, removeLength}) => {
 
 
     let arrChanged = [];
@@ -21,11 +21,12 @@ const JobsAll = ({getJobs, length, addLength}) => {
     }
 
     return (
-        <main>
-            <div>MAP</div>
+        <main style={{backgroundColor: '#f5f1f1'}}>
+            <iframe src="https://embed.waze.com/iframe?zoom=8&lat=55.266598&lon=23.796387&ct=livemap" width="600"
+                    height="450" allowFullScreen> </iframe>
             <section>
                 <FindJobForm/>
-                <div className={'d-flex'}>
+                <div className={'d-flex justify-center checkBoxes'}>
                     {categoriesArr.map((x, index) =>
                         <div key={index}>
                             <label>{x}</label>
@@ -34,7 +35,10 @@ const JobsAll = ({getJobs, length, addLength}) => {
                     )}
                 </div>
                 <DisplayJobs jobs={getJobs}/>
-                {length !== getJobs.length && <button className={'btn'} onClick={() => addLength()}>Show more</button>}
+                <div className={'d-flex space-btw'}>
+                    {length !== getJobs.length && <button className={'btn'} onClick={() => addLength()}>Show more</button>}
+                    {length > 4 && <button className={'btn'} onClick={() => removeLength()}>Show Less</button>}
+                </div>
             </section>
         </main>
     );
