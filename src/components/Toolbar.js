@@ -6,6 +6,8 @@ const Toolbar = () => {
 
     const {setLength} = useContext(DataContext);
 
+        window.scrollTo(0, 0)
+
     return (
         <div className={'toolBar d-flex space-btw'}>
             <div className={'logoWrapper d-flex justify-center'}>
@@ -14,9 +16,9 @@ const Toolbar = () => {
                 </a>
             </div>
             <nav className={'d-flex'}>
-                <Link to='/' onClick={() => setLength(4)}>Home</Link>
-                <Link to='/allJobs' onClick={() => setLength(4)} >Find a Job</Link>
-                <Link to='/postJob' onClick={() => setLength(4)}>Post a Job</Link>
+                <Link to='/' onClick={() => {setLength(4)}}>Home</Link>
+                <Link to='/allJobs' >Find a Job</Link>
+                <Link to='/postJob' onClick={() => {setLength(4)}}>Post a Job</Link>
             </nav>
         </div>
     );

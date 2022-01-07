@@ -3,10 +3,8 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  background-image: url("http://rsparch.com/wp-content/uploads/2016/05/Mobile-IT-Workplace.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100vh;
-  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
 }
 
 .toolBar{
@@ -22,6 +20,20 @@
   width: 100%;
   align-items: center;
   background-color: lightskyblue;
+}
+
+.partOne{
+  background-image: url("http://rsparch.com/wp-content/uploads/2016/05/Mobile-IT-Workplace.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  background-attachment: fixed;
+}
+
+.partTwo{
+  background-image: url("https://s2.15min.lt/images/photos/2020/07/16/original/vinted-office-do-architects-visualization-5f10a52ca2fa1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  background-attachment: fixed;
 }
 
 .toolBar > .logoWrapper{
@@ -56,6 +68,9 @@ a{
 
 a:hover{
   box-shadow: 0 1px 0 0 grey;
+}
+.icon{
+  font-size: 30px;
 }
 
 main{
@@ -100,12 +115,20 @@ article{
   border-radius: 5px;
 }
 
+.imgWrapper{
+  width: 80%;
+  height: 100px;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
 .imgWrapper div{
-  height: 150px;
-  width: 150px;
+  height: 90%;
+  width: 80px;
   padding: 10px;
   margin: 10px;
   background-size: contain;
+  background-repeat: no-repeat;
   filter: grayscale(100%);
   border-radius: 10px;
 }
@@ -121,7 +144,11 @@ form, section{
 .infoWrapper{
   width: 50%;
   color: white;
-  padding: 50px 0;
+  margin: 50px 0;
+  padding: 10px;
+  border: solid 1px grey;
+  border-radius: 5px;
+  background-color: rgba(61, 59, 59, 0.55);
 }
 
 section > img {
@@ -134,15 +161,28 @@ section > img {
 
 .checkBoxes{
   margin: 0;
-  padding: 10px;
+  padding: 5px;
   background: lightskyblue;
+  flex-wrap: wrap;
+}
 
+.checkBoxes > div{
+  padding: 10px;
+  width: 150px;
+  box-shadow: 1px 1px 2px 0 black;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.checkBoxes > div > input{
+  cursor: pointer;
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
 }
 
 .jobCardSmall{
   cursor: pointer;
-  height: 100px;
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
   border: solid 1px black;
   transition: 0.2s;
@@ -153,10 +193,99 @@ section > img {
   box-shadow: -4px 0 0 0 green;
 }
 
-.jobCardSmall img{
-  height: 100%;
+.jobCardSmall > img{
+  height: 120px;
+  flex: 1;
+  padding: 10px;
 }
 
+.jobCardSmall > .jobAbout{
+  flex: 6;
+}
+
+.jobAbout  h4{
+  color: grey;
+}
+
+.jobAbout h5, h4{
+  padding: 0;
+  margin: 0;
+}
+
+.jobAbout svg{
+  font-size: 15px;
+}
+
+.jobType{
+  color: white;
+  padding: 0 40px;
+  border-radius: 5px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.part-time{
+  background-color: #735fee;
+}
+
+.freelance{
+  background-color: #ff5a5f;
+}
+
+.full-time, .temporary{
+  background-color: lightskyblue;
+}
+
+.internship{
+  background-color: #00b2a9;
+}
+
+.reviews{
+  color: white;
+  background-image:linear-gradient( rgba(135, 206, 250, 0.56), rgba(135, 206, 250, 0.58)), url("https://www.achievers.com/blog/wp-content/uploads/2017/10/old.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.reviewsWrapper{
+  width: 90%;
+  overflow-x: scroll;
+}
+
+.card{
+  padding: 10px;
+  margin: 10px;
+}
+
+.reviewText{
+  width: 160px;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.reviewText::after{
+  content: '';
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.65);
+  transform: rotate(45deg) translateX(80px);
+}
+
+.card > img{
+  border-radius: 20px;
+  height: 80px;
+  width: 80px;
+}
+
+.blogPost img{
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+}
 
 .contactsWrapper > div{
   width: 23%;
@@ -245,12 +374,15 @@ form *{
 .p-10{
   padding: 10px;
 }
-
 .gap-15{
   gap: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+
+  section, form{
+    width: 90%;
+  }
 
   form input,select,textarea{
     width: 90%;
