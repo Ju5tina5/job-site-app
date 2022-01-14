@@ -324,7 +324,7 @@ function App() {
             <DataContext.Provider value={{onArrayFilter, length, setLength, getJobPosts, articles, reviews}}>
                 <Toolbar setLength={setLength}/>
                 <Routes>
-                    <Route path='/' element={<Home getJobs={getJobPosts} length={length} addLength={addLength}
+                    <Route path='/home' element={<Home getJobs={getJobPosts} length={length} addLength={addLength}
                                                    removeLength={removeLength} information={infoArr}/>}/>
                     <Route path={'/allJobs'}
                            element={<JobsAll getJobs={getFiltered}
